@@ -7,7 +7,7 @@ export default class Controller {
     private _router: Router = Router();
     private _routes: Map<string, IRoute> = new Map<string, IRoute>();
 
-    constructor(path: string) {
+    constructor(path: string = '/') {
         this._path = path;
 
         this.setupRoutes();
@@ -21,5 +21,9 @@ export default class Controller {
                 route.handler
             );
         });
+    }
+
+    public get router(): Router {
+        return this._router;
     }
 }
