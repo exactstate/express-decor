@@ -1,0 +1,17 @@
+{
+  "name": "express-decor",
+  "author": "97lunarmare",
+  "main": "./dist/index.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11"
+  }
+}
