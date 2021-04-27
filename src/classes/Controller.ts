@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { IRoute } from "../typings";
+import MiddlewareManager from "./MiddlewareManager";
 import RouteManager from "./RouteManager";
 
 export default class Controller {
@@ -14,10 +15,14 @@ export default class Controller {
 
     private setupRoutes(): void {
         this._routes = RouteManager.getRoutes(this);
-        this._routes.forEach(route => {
+        this._routes.forEach((route: IRoute, key: string) => {
+            route.middlewares = MiddlewareManager.getMiddlewares(this, key);
+
             this._router[route.method](
                 route.path,
-                route.handler
+                ...route.middlewares.before,
+                route.handler,
+                ...route.middlewares.after
             );
         });
     }

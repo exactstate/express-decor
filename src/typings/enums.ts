@@ -5,3 +5,8 @@ export enum HttpVerb {
     Patch = 'patch',
     Delete = 'delete'
 }
+
+export enum MiddlewareOrder {
+    Before = 'before',
+    After = 'after'
+}

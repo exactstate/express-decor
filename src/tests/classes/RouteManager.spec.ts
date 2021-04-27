@@ -9,7 +9,7 @@ describe('RouteManager', () => {
     describe('getRoutes', () => {
         it('should return route map defined for controller', () => {
             const routes = RouteManager.getRoutes(exampleController);
-            expect(routes.get('/index')).to.not.be.null;
+            expect(routes.get('get')).to.not.be.undefined;
         });
     });
 
@@ -20,9 +20,9 @@ describe('RouteManager', () => {
                 handler: () => {},
                 method: HttpVerb.Get
             };
-            RouteManager.addRoute(exampleController, route);
+            RouteManager.addRoute(exampleController, 'routerManagerTest', route);
 
-            expect(RouteManager.getRoutes(exampleController).get('/route-manager-test')).to.not.be.null;
+            expect(RouteManager.getRoutes(exampleController).get('routerManagerTest')).to.not.be.undefined;
         });
     });
 });

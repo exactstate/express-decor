@@ -1,5 +1,5 @@
-import { Controller, route } from '..';
-import { del, get, patch, post, put } from '../route';
+import { Controller, route } from '../..';
+import { del, get, patch, post, put } from '../../decorators/route';
 import { expect } from 'chai';
 
 class ExampleController extends Controller {
@@ -25,10 +25,10 @@ describe('@route', () => {
     it('should append a Route object to controllers defined routes map', () => {
         const routes = exampleController.routes;
 
-        expect(routes.get('/get')).to.not.be.null;
-        expect(routes.get('/post')).to.not.be.null;
-        expect(routes.get('/put')).to.not.be.null;
-        expect(routes.get('/patch')).to.not.be.null;
-        expect(routes.get('/del')).to.not.be.null;
+        expect(routes.get('get')).to.not.be.undefined;
+        expect(routes.get('post')).to.not.be.undefined;
+        expect(routes.get('put')).to.not.be.undefined;
+        expect(routes.get('patch')).to.not.be.undefined;
+        expect(routes.get('del')).to.not.be.undefined;
     })
 });

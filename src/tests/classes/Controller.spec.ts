@@ -6,7 +6,7 @@ describe('Controller', () => {
         expect(
             exampleController.router && 
             typeof(exampleController.router.get) === 'function'
-        ).equals(true);
+        ).true
     })
 
     it('should set and expose Controller path', () => {
