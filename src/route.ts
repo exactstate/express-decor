@@ -5,7 +5,7 @@ import RouteManager from './classes/RouteManager';
 import { HttpVerb } from './typings/enums';
 
 export function route(options: IRouteOptions) {
-    return function(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<Function>) {
+    return function(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<any>) {
         const route: IRoute = {
             path: options.path || '/',
             handler: <RequestHandler>descriptor.value,

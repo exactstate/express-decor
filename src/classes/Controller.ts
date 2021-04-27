@@ -9,7 +9,6 @@ export default class Controller {
 
     constructor(path: string = '/') {
         this._path = path;
-
         this.setupRoutes();
     }
 
@@ -25,5 +24,13 @@ export default class Controller {
 
     public get router(): Router {
         return this._router;
+    }
+
+    public get path(): string {
+        return this._path;
+    }
+
+    public get routes(): Map<string, IRoute> {
+        return this._routes;
     }
 }
