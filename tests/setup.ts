@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { controller, Controller, get, before } from '../src';
-import { body } from '../src/decorators/body';
+import { bind, params } from '../src/decorators/bind';
 const app = express();
 
 @controller('/example')
@@ -13,7 +13,7 @@ export class ExampleController extends Controller {
 
     @get('/bodyTest')
     bodyTest(
-        @body('user_id')
+        @params('user_id')
         userId: number
     ) {
 

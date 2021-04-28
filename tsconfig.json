@@ -11,5 +11,10 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": [
+    "tests/**/*.ts",
+    "node_modules",
+    "dist"
+  ]
 }
