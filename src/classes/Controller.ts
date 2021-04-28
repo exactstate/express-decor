@@ -1,12 +1,12 @@
-import { Router } from "express";
-import { IRoute } from "../typings";
+import { Router, Request, Response } from "express";
 import MiddlewareManager from "./MiddlewareManager";
+import Route from "./Route";
 import RouteManager from "./RouteManager";
 
 export default class Controller {
     private _path: string;
     private _router: Router = Router();
-    private _routes: Map<string, IRoute> = new Map<string, IRoute>();
+    private _routes: Map<string, Route> = new Map<string, Route>();
 
     constructor(path: string = '/') {
         this._path = path;
@@ -15,15 +15,9 @@ export default class Controller {
 
     private setupRoutes(): void {
         this._routes = RouteManager.getRoutes(this);
-        this._routes.forEach((route: IRoute, key: string) => {
+        this._routes.forEach((route: Route, key: string) => {
             route.middlewares = MiddlewareManager.getMiddlewares(this, key);
-
-            this._router[route.method](
-                route.path,
-                ...route.middlewares.before,
-                route.handler,
-                ...route.middlewares.after
-            );
+            route.registerRoute(this._router);
         });
     }
 
@@ -35,7 +29,7 @@ export default class Controller {
         return this._path;
     }
 
-    public get routes(): Map<string, IRoute> {
+    public get routes(): Map<string, Route> {
         return this._routes;
     }
 }

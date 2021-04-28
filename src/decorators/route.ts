@@ -1,16 +1,16 @@
 import 'reflect-metadata';
-import { RequestHandler } from 'express';
-import { IRoute, IRouteOptions } from "../typings";
+import { RequestHandler, Request, Response } from 'express';
+import { IRouteOptions } from "../typings";
 import RouteManager from '../classes/RouteManager';
 import { HttpVerb } from '../typings/enums';
+import Route from '../classes/Route';
 
 export function route(options: IRouteOptions) {
     return function(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<any>) {
-        const route: IRoute = {
-            path: options.path || propertyKey,
-            handler: <RequestHandler>descriptor.value,
-            method: options.method || HttpVerb.Get
-        }
+        const route: Route = new Route(); 
+        route.path = options.path || propertyKey;
+        route.handler = <RequestHandler>descriptor.value;
+        route.method = options.method || HttpVerb.Get;
 
         RouteManager.addRoute(target, propertyKey, route);
     }
