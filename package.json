@@ -5,7 +5,7 @@
   "scripts": {
     "watch": "tsc -w",
     "build": "tsc",
-    "test": "mocha -r ts-node/register src/tests/**/*.spec.ts"
+    "test": "mocha -r ts-node/register tests/**/*.spec.ts"
   },
   "dependencies": {
     "express": "^4.17.1",

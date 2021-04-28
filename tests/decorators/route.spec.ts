@@ -1,5 +1,5 @@
-import { Controller, route } from '../..';
-import { del, get, patch, post, put } from '../../decorators/route';
+import { Controller, route } from '../../src';
+import { del, get, patch, post, put } from '../../src/decorators/route';
 import { expect } from 'chai';
 
 class ExampleController extends Controller {

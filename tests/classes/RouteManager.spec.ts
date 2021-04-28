@@ -1,8 +1,8 @@
 import { ExampleController } from '../setup';
-import RouteManager from '../../classes/RouteManager';
+import RouteManager from '../../src/classes/RouteManager';
 import { expect } from 'chai';
-import { HttpVerb } from '../../typings/enums';
-import Route from '../../classes/Route';
+import { HttpVerb } from '../../src/typings/enums';
+import Route from '../../src/classes/Route';
 
 const exampleController = new ExampleController();
 

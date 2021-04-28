@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
-import { controller, Controller, get, before } from '..';
+import { controller, Controller, get, before } from '../src';
+import { body } from '../src/decorators/body';
 const app = express();
 
 @controller('/example')
@@ -8,6 +9,14 @@ export class ExampleController extends Controller {
     @before((req: any, res: any) => { console.log('works'); })
     get(req: Request, res: Response) {
         res.sendStatus(200);
+    }
+
+    @get('/bodyTest')
+    bodyTest(
+        @body('user_id')
+        userId: number
+    ) {
+
     }
 }
 

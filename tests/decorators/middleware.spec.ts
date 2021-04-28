@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { Controller, before, after } from '../..';
-import { get } from '../../decorators/route';
+import { Controller, before, after } from '../../src';
+import { get } from '../../src/decorators/route';
 
 class ExampleController extends Controller {
     @before(() => {})

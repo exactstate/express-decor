@@ -1,6 +1,6 @@
-import { MiddlewareOrder } from './../../typings/enums';
+import { MiddlewareOrder } from '../../src/typings/enums';
 import { expect } from "chai";
-import MiddlewareManager from "../../classes/MiddlewareManager";
+import MiddlewareManager from "../../src/classes/MiddlewareManager";
 import { ExampleController } from "../setup";
 
 const exampleController = new ExampleController();
