@@ -7,7 +7,7 @@ import Route from '../classes/Route';
 
 export function route(options: IRouteOptions) {
     return function(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<any>) {
-        const route: Route = new Route(); 
+        const route: Route = RouteManager.getRoute(target, propertyKey); 
         route.path = options.path || propertyKey;
         route.handler = <RequestHandler>descriptor.value;
         route.method = options.method || HttpVerb.Get;
