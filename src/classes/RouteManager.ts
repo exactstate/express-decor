@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import { IRoute } from '../typings';
 import Route from './Route';
 
 export default class RouteManager {
